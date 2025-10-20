@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web SSH Client</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.3.0/css/xterm.css" />
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 连接表单 -->
+        <div id="connect-form" class="connect-container">
+            <div class="form-card">
+                <h1>Web SSH 客户端</h1>
+                <form id="ssh-form">
+                    <div class="form-group">
+                        <label for="host">主机地址</label>
+                        <div class="input-group">
+                            <input type="text" id="host" placeholder="127.0.0.1" value="127.0.0.1" required>
+                            <span class="separator">:</span>
+                            <input type="number" id="port" placeholder="22" value="22" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <input type="text" id="username" placeholder="root" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>认证方式</label>
+                        <div class="auth-type">
+                            <label class="radio-label">
+                                <input type="radio" name="auth" value="password" checked>
+                                <span>密码</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="auth" value="key">
+                                <span>私钥</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="password-group">
+                        <label for="password">密码</label>
+                        <input type="password" id="password" placeholder="请输入密码" autocomplete="off">
+                    </div>
+
+                    <div class="form-group" id="key-group" style="display: none;">
+                        <label for="private-key">私钥</label>
+                        <textarea id="private-key" rows="6" placeholder="请粘贴 SSH 私钥内容"></textarea>
+                        <small>或者</small>
+                        <input type="file" id="key-file" accept=".pem,.key">
+                    </div>
+
+                    <div class="form-group" id="passphrase-group" style="display: none;">
+                        <label for="passphrase">密钥密码（可选）</label>
+                        <input type="password" id="passphrase" placeholder="如果私钥有密码保护" autocomplete="off">
+                    </div>
+
+                    <button type="submit" class="connect-btn">连接</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 终端容器 -->
+        <div id="terminal-container" style="display: none;">
+            <div id="terminal-header">
+                <span id="connection-info"></span>
+                <button id="disconnect-btn" class="disconnect-btn">断开连接</button>
+            </div>
+            <div id="terminal"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xterm@5.3.0/lib/xterm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.8.0/lib/xterm-addon-fit.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>
+
