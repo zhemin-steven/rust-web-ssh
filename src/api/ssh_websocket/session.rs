@@ -7,6 +7,7 @@ use tokio::sync::mpsc::UnboundedSender;
 use ssh2::Session as Ssh2Session;
 use warp::ws::{Message, WebSocket};
 use log::{info, error};
+use crate::host_key::HostKeyService;
 
 use super::super::ssh_websocket::get_ws_stdout;
 
@@ -95,6 +96,7 @@ impl Session {
         &mut self,
         mut user_rx: SplitStream<WebSocket>,
         tx: &UnboundedSender<Message>,
+        host_key_service: HostKeyService,
     ) -> anyhow::Result<u32> {
         // 第一阶段：接收连接参数
         while let Some(result) = user_rx.next().await {

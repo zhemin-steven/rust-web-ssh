@@ -1,0 +1,14 @@
+{
+  "7d983bef-46fd-45e0-8f89-2b7a33f1f3bd": {
+    "id": "7d983bef-46fd-45e0-8f89-2b7a33f1f3bd",
+    "user_id": "00000000-0000-0000-0000-000000000001",
+    "name": "75-1",
+    "host": "158.69.121.75",
+    "port": 17060,
+    "username": "root",
+    "password": "DbefsTH7UnST2Uu8i6aJfaSH3f1WAljHSpIfn5kZDUZv1Z7H4ek=",
+    "auth_type": "password",
+    "created_at": 1760956357,
+    "last_used": null
+  }
+}

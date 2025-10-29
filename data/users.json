@@ -1,0 +1,11 @@
+{
+  "admin": {
+    "id": "00000000-0000-0000-0000-000000000001",
+    "username": "admin",
+    "password_hash": "$2b$12$4JZhNFUS25Gf4kJkpDEzwuGT1W1n03aZpkeK9n.y5BpFcDFfM5LhC",
+    "role": "Admin",
+    "created_at": 1760953824,
+    "totp_secret": null,
+    "totp_enabled": false
+  }
+}
